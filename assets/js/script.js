@@ -1,3 +1,4 @@
+
 var searchedCity = "";
 var submitBtn = document.getElementById("submitBtn");
 var searchBar = document.getElementById("search-city");
@@ -6,6 +7,7 @@ var searchBar = document.getElementById("search-city");
 var getLocationGiphy = function (location, weather) {
     // format the GIPHY api url                User entered location    current weather of location    api key                     amount of gifs requested
     var apiUrl = "http://api.giphy.com/v1/gifs/search?q=" + location + " " + weather + "&api_key=SHks0oKzeD1J8FJxxV3tXAqMCUuXR1C6&rating=g&limit=3";
+
 
     // make a request to the url
     fetch(apiUrl)
@@ -51,6 +53,7 @@ var getWeatherData = function (location) {
 };
 
 
+
 function userCity() {
     var finalSearch = searchBar.value;
     searchedCity = finalSearch;
@@ -65,6 +68,7 @@ function saveCity(event) {
 };
 
 submitBtn.onclick = saveCity;
+
 
 
 
