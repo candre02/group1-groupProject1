@@ -30,7 +30,7 @@ var getLocationGiphy = function (location, weather) {
 // gets current weather data and pushes current weather status into gif search along with the user searched city
 var getWeatherData = function (location) {
     // format the Open Weather api url                         User entered location             api key
-    var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + location + "&appid=07748c42b466d653378d277748838d7c";
+    var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + location + "&units=imperial&appid=07748c42b466d653378d277748838d7c";
 
     // make a request to the url
     fetch(apiUrl)
@@ -40,7 +40,7 @@ var getWeatherData = function (location) {
                 response.json().then(function (data) {
                     var currentWeather = data.weather[0].main;
                     getLocationGiphy(searchedCity, currentWeather);
-                    console.log(data);
+                    currentTemperture(data);
                 });
             } else {
                 // request was unsuccessful 
@@ -51,6 +51,19 @@ var getWeatherData = function (location) {
             alert("Unable to connect to Open Weather");
         });
 };
+
+function currentTemperture(weather) {
+    var temp = document.getElementById("temp");
+    var humidity = document.getElementById("humidity");
+    var wind = document.getElementById("wind");
+    var pressure = document.getElementById("pressure");
+
+    temp.textContent = weather.main.temp + "F";
+    humidity.textContent = weather.main.humidity;
+    wind.textContent = weather.wind.speed + "mph";
+    pressure.textContent = weather.main.pressure + "hPa";
+}
+
 
 // applies the 3 searched gifs to the website
 function applyGifs(gifs) {
