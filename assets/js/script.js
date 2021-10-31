@@ -15,7 +15,7 @@ var getLocationGiphy = function (location, weather) {
             // request was successful
             if (response.ok) {
                 response.json().then(function (data) {
-                    console.log(data);
+                    applyGifs(data);
                 });
             } else {
                 // request was unsuccessful 
@@ -52,7 +52,18 @@ var getWeatherData = function (location) {
         });
 };
 
+// applies the 3 searched gifs to the website
+function applyGifs(gifs) {
+    var gifOne = document.getElementById("gifOne");
+    var gifTwo = document.getElementById("gifTwo");
+    var gifThree = document.getElementById("gifThree");
 
+    console.log(gifs);
+
+    gifOne.setAttribute("src", gifs.data[0].embed_url);
+    gifTwo.setAttribute("src", gifs.data[1].embed_url);
+    gifThree.setAttribute("src", gifs.data[2].embed_url);
+};  
 
 function userCity() {
     var finalSearch = searchBar.value;
