@@ -3,6 +3,19 @@ body h1 {
     text-align: center;
 }
 
+.title.is-1 {
+    font-size: 6rem;
+}
+
 .gifContainer {
     height: 40rem;
 }
+
+body {
+    font-family: Roboto Slab;
+    background-color: lightgray;
+}
+
+.history-item {
+    padding-left: 0.5rem;
+} 
