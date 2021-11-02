@@ -2,6 +2,8 @@
 var searchedCity = "";
 var submitBtn = document.getElementById("submitBtn");
 var searchBar = document.getElementById("search-city");
+var historyEl = document.getElementById("history");
+
 
 
 var getLocationGiphy = function (location, weather) {
@@ -71,12 +73,10 @@ function applyGifs(gifs) {
     var gifTwo = document.getElementById("gifTwo");
     var gifThree = document.getElementById("gifThree");
 
-    console.log(gifs);
-
     gifOne.setAttribute("src", gifs.data[0].embed_url);
     gifTwo.setAttribute("src", gifs.data[1].embed_url);
     gifThree.setAttribute("src", gifs.data[2].embed_url);
-};  
+};
 
 function userCity() {
     var finalSearch = searchBar.value;
@@ -84,18 +84,48 @@ function userCity() {
     getWeatherData(searchedCity);
 };
 
+// save to local storage
+function saveSearch() {
+    var searchValue = searchBar.value.trim();
 
+    var searchHistory = loadHistory();
+
+    searchHistory.push(searchValue);
+
+    localStorage.setItem('searched', JSON.stringify(searchHistory));
+    displayHistory(searchHistory);
+
+};
+
+var displayHistory = function (searchHistory) {
+    //console.log("inside displayHistory");
+    historyEl.innerHTML = "";
+    for (var i = 0; i < searchHistory.length; i++) {
+        var historyDiv = document.createElement("div");
+        historyDiv.addEventListener('click', function (event) {
+            getWeatherData(event.target.innerText);
+        })
+        historyDiv.classList.add("history-item");
+        historyDiv.innerHTML = "<h4>" + searchHistory[i] + "</h4>";
+        historyEl.appendChild(historyDiv);
+    }
+};
+
+var loadHistory = function () {
+    var localHistory = localStorage.getItem("searched")
+    if (localHistory) {
+        return JSON.parse(localHistory);
+    }
+
+    return []
+};
 
 function saveCity(event) {
     event.preventDefault();
     userCity();
+    saveSearch();
+    searchBar.value = ""
 };
 
+saveSearch();
 submitBtn.onclick = saveCity;
-
-
-
-
-
-
-
