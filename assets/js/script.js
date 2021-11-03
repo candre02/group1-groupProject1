@@ -8,7 +8,7 @@ var historyEl = document.getElementById("history");
 
 var getLocationGiphy = function (location, weather) {
     // format the GIPHY api url                User entered location    current weather of location    api key                     amount of gifs requested
-    var apiUrl = "http://api.giphy.com/v1/gifs/search?q=" + location + " " + weather + "&api_key=SHks0oKzeD1J8FJxxV3tXAqMCUuXR1C6&rating=g&limit=3";
+    var apiUrl = "http://api.giphy.com/v1/gifs/search?q=" + location + " " + weather + "&api_key=89j1iUdGXkDQQZxNUTaKGI9Ji6zHcWOr&rating=g&limit=3";
 
 
     // make a request to the url
