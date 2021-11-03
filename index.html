@@ -7,21 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
 
     <title>Weather Report Gif</title>
 </head>
 
 <body class="columns is-multiline">
-    <header class="header column is-full box">
-        <h1 class="title is-1">Weather Dashboard</h1>
+    <header class="header column is-full box has-background-primary">
+        <h1 class="title is-1 has-text-white">Weather GiFinder</h1>
     </header>
 
     <div class="column">
-        <div class="columns">
+        <div class="columns pr-2">
             <div class="column is-one-quarter">
-                <div class=" card box">
-                    <h3 class="card-header block title is-5">Search for a City</h3>
-                    <form id="search-form" class="card-body">
+                <div class="card box p-0 ml-2">
+                    <h3 class="card-header block title is-5 p-2 has-background-primary">Search for a City</h3>
+                    <form id="search-form" class="card-body p-2">
                         <input name="city" id="search-city" type="text" autofocus="true" class="form-input input is-primary is-normal block" />
 
                         <button type="submit" id="submitBtn" class="button is-primary"><span
@@ -31,8 +34,8 @@
                 </div>
 
                 <!-- The card that holds the search history -->
-                <div class="card column">
-                    <div class="card-header block">
+                <div class="card column p-0 ml-2 pb-1 ">
+                    <div class="card-header block p-2 mb-1 has-background-primary">
                         <h6 class="title is-5">Search History</h6>
                     </div>
                     <div class="card-body" id="history"></div>
@@ -43,7 +46,7 @@
             <!-- The large card in the upper right column that holds the current weather information -->
             <div class="column is-three-quarters" id="results-container">
                 <div class="card block">
-                    <h3 class="card-header title is-3">Current Weather Report</h3>
+                    <h3 class="card-header title is-3 p-2 m-0 has-background-primary">Current Weather Report</h3>
                     <div class="card-body box" id="current-stats">
                         <p class="block title is-6">Temperature: <span id="temp"></span></p>
                         <p class="block title is-6">Humidity: <span id="humidity"></span></p>
@@ -53,9 +56,9 @@
                 </div>
 
                 <!-- the cards that will be used to display the 5-day forecast, it is one larger card to group them together with a nested card to display each day's info -->
-                <div class="columns is-multiline box gifContainer" id="forecast-container">
-                    <div class="column is-full">
-                        <h3 class="title is-3">Weather Report Gifs</h3>
+                <div class="box columns gifContainer is-multiline m-0 p-0" id="forecast-container">
+                    <div class="column is-full p-0">
+                        <h3 class="card-header title is-3 p-2 m-0 has-background-primary">Weather Report Gifs</h3>
                     </div>
 
                     <iframe src="" id="gifOne" class="column" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
