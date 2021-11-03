@@ -11,6 +11,7 @@ var getLocationGiphy = function (location, weather) {
     var apiUrl = "https://api.giphy.com/v1/gifs/search?q=" + location + " " + weather + "&api_key=SHks0oKzeD1J8FJxxV3tXAqMCUuXR1C6&rating=g&limit=3";
 
 
+
     // make a request to the url
     fetch(apiUrl)
         .then(function (response) {
