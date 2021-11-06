@@ -114,7 +114,7 @@ var displayHistory = function (searchHistory) {
 var loadHistory = function () {
     var localHistory = localStorage.getItem("searched")
     console.log(localHistory)
-     var filterArr = removeDups(localHistory);
+     var filterArr = removeDups(loadHistory);
      console.log(filterArr, "no dups") 
     if (filterArr.length) {
         return filterArr;
