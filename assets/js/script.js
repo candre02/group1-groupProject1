@@ -113,12 +113,26 @@ var displayHistory = function (searchHistory) {
 
 var loadHistory = function () {
     var localHistory = localStorage.getItem("searched")
-    if (localHistory) {
-        return JSON.parse(localHistory);
+    console.log(localHistory)
+     var filterArr = removeDups(localHistory);
+     console.log(filterArr, "no dups") 
+    if (filterArr.length) {
+        return filterArr;
     }
 
     return []
 };
+
+// remove duplicated searches
+function removeDups(data) {
+    data = JSON.parse(data)
+    return data.filter((value, index)=> data.indexOf(value) === index);
+
+}
+
+
+
+
 
 function saveCity(event) {
     event.preventDefault();
