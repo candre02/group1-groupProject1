@@ -14,7 +14,7 @@
     <title>Weather Report Gif</title>
 </head>
 
-<body class="columns is-multiline">
+<body class="columns is-multiline is-clipped">
     <header class="header column is-full box has-background-primary">
         <h1 class="title is-1 has-text-white">Weather GiFinder</h1>
     </header>
@@ -68,6 +68,14 @@
 
             </div>
         </div>
+    </div>
+
+    <div id="modalEl" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content has-background-light box">
+            <p id="modalText"></p>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
     </div>
 
     <script src="./assets/js/script.js"></script>
