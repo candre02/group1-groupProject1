@@ -1,4 +1,4 @@
-
+// get the related html elements
 var searchedCity = "";
 var submitBtn = document.getElementById("submitBtn");
 var searchBar = document.getElementById("search-city");
@@ -53,6 +53,7 @@ var getWeatherData = function (location) {
         });
 };
 
+// applies the current weather temp,humidity,wind,pressure to the website
 function currentTemperture(weather) {
     var temp = document.getElementById("temp");
     var humidity = document.getElementById("humidity");
@@ -96,6 +97,7 @@ function saveSearch() {
 
 };
 
+//displays the searchHistory array into the history div element on the page.
 var displayHistory = function (searchHistory) {
     //console.log("inside displayHistory");
     historyEl.innerHTML = "";
@@ -110,6 +112,7 @@ var displayHistory = function (searchHistory) {
     }
 };
 
+//loads the search history from localStorage into the searchHistory array and then calls displayHistory function.
 var loadHistory = function () {
     var localHistory = localStorage.getItem("searched")
     if (localHistory) {
@@ -126,6 +129,8 @@ function saveCity(event) {
     searchBar.value = ""
 };
 
+
+// function called by the event listener
 function launchModal(inputText) {
     modalEl.setAttribute("class", "modal is-active");
     modalTextEl.textContent = inputText;
