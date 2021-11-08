@@ -1,15 +1,14 @@
-
+// get the related html elements
 var searchedCity = "";
 var submitBtn = document.getElementById("submitBtn");
 var searchBar = document.getElementById("search-city");
 var historyEl = document.getElementById("history");
-
-
+var modalEl = document.getElementById("modalEl");
+var modalTextEl = document.getElementById("modalText");
 
 var getLocationGiphy = function (location, weather) {
     // format the GIPHY api url                User entered location    current weather of location    api key                     amount of gifs requested
     var apiUrl = "https://api.giphy.com/v1/gifs/search?q=" + location + " " + weather + "&api_key=SHks0oKzeD1J8FJxxV3tXAqMCUuXR1C6&rating=g&limit=3";
-
 
 
     // make a request to the url
@@ -22,11 +21,11 @@ var getLocationGiphy = function (location, weather) {
                 });
             } else {
                 // request was unsuccessful 
-                alert("Error: GIPHY gif not found");
+                launchModal("Error: GIPHY gif not found");
             }
         })
         .catch(function (error) {
-            alert("Unable to connect to GIPHY");
+            launchModal("Unable to connect to GIPHY");
         });
 };
 
@@ -47,14 +46,15 @@ var getWeatherData = function (location) {
                 });
             } else {
                 // request was unsuccessful 
-                alert("Error: weather info not found");
+                launchModal("Error: weather info not found");
             }
         })
         .catch(function (error) {
-            alert("Unable to connect to Open Weather");
+            launchModal("Unable to connect to Open Weather");
         });
 };
 
+// applies the current weather temp,humidity,wind,pressure to the website
 function currentTemperture(weather) {
     var temp = document.getElementById("temp");
     var humidity = document.getElementById("humidity");
@@ -98,6 +98,7 @@ function saveSearch() {
 
 };
 
+//displays the searchHistory array into the history div element on the page.
 var displayHistory = function (searchHistory) {
     //console.log("inside displayHistory");
     historyEl.innerHTML = "";
@@ -112,6 +113,7 @@ var displayHistory = function (searchHistory) {
     }
 };
 
+//loads the search history from localStorage into the searchHistory array and then calls displayHistory function.
 var loadHistory = function () {
     var localHistory = localStorage.getItem("searched")
     if (localHistory) {
@@ -128,5 +130,18 @@ function saveCity(event) {
     searchBar.value = ""
 };
 
+
+// function called by the event listener
+function launchModal(inputText) {
+    modalEl.setAttribute("class", "modal is-active");
+    modalTextEl.textContent = inputText;
+};
+
+function closeModal() {
+    modalEl.setAttribute("class", "modal");
+};
+
 saveSearch();
+
+modalEl.onclick = closeModal;
 submitBtn.onclick = saveCity;

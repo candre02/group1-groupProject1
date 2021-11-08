@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Primarily using Bulma for our CSS framework -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,11 +15,11 @@
     <title>Weather Report Gif</title>
 </head>
 
-<body class="columns is-multiline">
+<body class="columns is-multiline is-clipped">
     <header class="header column is-full box has-background-primary">
         <h1 class="title is-1 has-text-white">Weather GiFinder</h1>
     </header>
-
+    <!-- Bulma columns, card for laying out the CSS elements, this div hold the search input -->
     <div class="column">
         <div class="columns pr-2">
             <div class="column is-one-quarter">
@@ -55,7 +56,7 @@
                     </div>
                 </div>
 
-                <!-- the cards that will be used to display the 5-day forecast, it is one larger card to group them together with a nested card to display each day's info -->
+                <!-- the card that will be used to display the 3 weather-related gifs, it is one larger div with three frames -->
                 <div class="box columns gifContainer is-multiline m-0 p-0" id="forecast-container">
                     <div class="column is-full p-0">
                         <h3 class="card-header title is-3 p-2 m-0 has-background-primary">Weather Report Gifs</h3>
@@ -68,6 +69,14 @@
 
             </div>
         </div>
+    </div>
+
+    <div id="modalEl" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content has-background-light box">
+            <p id="modalText"></p>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
     </div>
 
     <script src="./assets/js/script.js"></script>
