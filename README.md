@@ -23,8 +23,8 @@ Iterations of this project could enhance the user experience by providing more d
 ![weather-gifinder](https://user-images.githubusercontent.com/81876258/139996005-1c2e928c-ca7f-4b35-9e11-f93b78de4eea.png)
 
 ## Website
-https://kanellakise.github.io/group1-groupProject1/
+[Deployed Link](https://kanellakise.github.io/group1-groupProject1/)
 
 ## Repository
-https://github.com/kanellakise/group1-groupProject1.git
+[Github Link](https://github.com/kanellakise/group1-groupProject1.git)
 
